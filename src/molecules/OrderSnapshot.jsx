@@ -1,4 +1,5 @@
 /* eslint-disable react/prop-types */
+import moment from "moment/moment";
 
 function OrderSnapshot({id, createdAt, deliveredAt, status}) {
   return (
@@ -8,10 +9,12 @@ function OrderSnapshot({id, createdAt, deliveredAt, status}) {
       </p>
       <div>
         <p>
-          <span className="font-medium">Placed On:</span> {createdAt}
+          <span className="font-medium">Placed On:</span>{" "}
+          {moment(createdAt).format("YYYY-MM-DD")}
         </p>
         <p>
-          <span className="font-medium">Delivered At:</span> {deliveredAt}
+          <span className="font-medium">Delivered At:</span>{" "}
+          {moment(deliveredAt).format("YYYY-MM-DD")}
         </p>
         <p className="font-medium">
           Order Status: <span className="text-amber-500">{status}</span>

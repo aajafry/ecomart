@@ -1,4 +1,5 @@
 import Actions from "../molecules/Actions";
+import moment from "moment/moment";
 
 export const employeeColumns = (onEdit, onDelete) => [
   {
@@ -38,6 +39,9 @@ export const employeeColumns = (onEdit, onDelete) => [
     headerClassName: "super-app-theme--header",
     type: "string",
     width: 130,
+    renderCell: (params) => {
+      return moment(params.row.createdAt).format("YYYY-MM-DD");
+    }
   },
   {
     field: "salary",

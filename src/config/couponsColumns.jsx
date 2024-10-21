@@ -1,3 +1,4 @@
+import moment from 'moment/moment';
 import Actions from '../molecules/Actions';
 
 export const couponsColumns = (onEdit, onDelete) => [
@@ -24,6 +25,9 @@ export const couponsColumns = (onEdit, onDelete) => [
     headerClassName: "super-app-theme--header",
     type: "string",
     width: 130,
+    renderCell: (params) => {
+      return moment(params.row.validFrom).format("YYYY-MM-DD");
+    },
   },
   {
     field: "validTo",
@@ -31,6 +35,9 @@ export const couponsColumns = (onEdit, onDelete) => [
     headerClassName: "super-app-theme--header",
     type: "string",
     width: 130,
+    renderCell: (params) => {
+      return moment(params.row.validTo).format("YYYY-MM-DD");
+    },
   },
   {
     field: "usageLimit",

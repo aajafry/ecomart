@@ -3,7 +3,7 @@ import { IoEye } from "react-icons/io5";
 import { LiaShippingFastSolid } from "react-icons/lia";
 import { MdCancel } from "react-icons/md";
 import { SiTicktick } from "react-icons/si";
-
+import moment from "moment";
 
 export const sellerOrderColumns = (onUpdateStatus, onAcceptRefund, onCancel) => [
   {
@@ -42,6 +42,9 @@ export const sellerOrderColumns = (onUpdateStatus, onAcceptRefund, onCancel) => 
     headerClassName: "super-app-theme--header",
     type: "string",
     width: 130,
+    renderCell: (params) => {
+      return moment(params.row.createdAt).format("YYYY-MM-DD");
+    }
   },
   {
     field: "finalTotal",

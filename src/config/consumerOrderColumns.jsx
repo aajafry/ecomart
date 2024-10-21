@@ -1,3 +1,4 @@
+import moment from "moment";
 import { IoEye } from "react-icons/io5";
 import { MdCancel } from "react-icons/md";
 import { RiRefund2Line } from "react-icons/ri";
@@ -40,6 +41,9 @@ export const consumerOrderColumns = (onView, onRefundRequest, onCancel) => [
     headerClassName: "super-app-theme--header",
     type: "string",
     width: 130,
+    renderCell: (params) => {
+      return moment(params.row.createdAt).format('YYYY-MM-DD')
+    }
   },
   {
     field: "finalTotal",
